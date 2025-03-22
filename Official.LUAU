@@ -208,9 +208,9 @@ local atomicanims = {
 
 	["BlaUltimate"]=15391323441;
 	["Sunset"]=15520132233;
-	["SolarCleave"]=12447707844;
-	["Sunrise"]=11343318134;
-	["AtomicSlash"]=11343318134;
+	["SolarCleave"]=15676072469;
+	["Sunrise"]=16062410809;
+	["AtomicSlash"]=16082123712;
 
 	["WallCombo"]=15997042291;
 	["Spawn"] = 15983615423;
@@ -343,9 +343,9 @@ resetHotbarText()
 	function ultimatemove()
 		isult = true
 		real1.Text = "Divine Comboing Flames"
-		real2.Text = ""
-		real3.Text = "?"
-		real4.Text = "?"
+		real2.Text = "Instant Slashes"
+		real3.Text = "Blitzing Strong Dismantle"
+		real4.Text = "World Cutting Slash"
 	end
 	basemove()
 	
@@ -379,32 +379,56 @@ resetHotbarText()
 		local playinga = animationTrack.Animation.AnimationId
 		
 		--[[Base]]--------------------
-		if playinga == "rbxassetid://" .. atomicanimns["NormalPunch"] then	
+		if playinga == "rbxassetid://" .. atomicanims["QuickSlice"] then	
 			animstop()
 			local AnimAnim = Instance.new("Animation")
-			AnimAnim.AnimationId = "rbxassetid://"..00000 
+			AnimAnim.AnimationId = "rbxassetid://116753755471636" 
 
 			local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimAnim)
 			Anim:Play()
-			Anim.TimePosition = .5
+
+                      local startTime = 1.2
+ 
+                      Anim:AdjustSpeed(0)
+ 
+                     Anim.TimePosition = startTime
+ 
+                     Anim:AdjustSpeed(1.5)
+
+ 
+                    delay(1, function()
+ 
+                   Anim:Stop()
+ 
+                    end)
+
 		end
 		
 		
 		--[[Ultimate]]--------------------
-		if playinga == "rbxassetid://" .. atomicanimns["SeriousPunch"] then	
+		if playinga == "rbxassetid://" .. atomicanimns["Sunset"] then	
 			animstop()
-			removecutscene()
+			local AnimAnim = Instance.new("Animation")
+			AnimAnim.AnimationId = "rbxassetid://18896229321" 
 
-			task.delay(.1,function()
-				for i,v in pairs(workspace:GetChildren()) do
-					if v:IsA("Sound") then
-						if v.SoundId == "rbxassetid://15103769292" then
-							v:Remove()
-						end
-					end
-				end
-			end)
-		end
+			local Anim = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(AnimAnim)
+			Anim:Play()
+
+                      local startTime = 0
+ 
+                      Anim:AdjustSpeed(0)
+ 
+                     Anim.TimePosition = startTime
+ 
+                     Anim:AdjustSpeed(1)
+
+ 
+                    delay(3.4, function()
+ 
+                   Anim:Stop()
+ 
+                    end)
+
 	end--end of moveseteditor
 	
 
@@ -473,4 +497,4 @@ else --if using the wrong character
 		Text = "You cant use this without the character",
 		Icon = "rbxassetid://"
 	})
-end --end of bald
+end
